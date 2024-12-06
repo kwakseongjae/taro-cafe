@@ -6,7 +6,7 @@ export default function Career() {
   const randomValue = Math.floor(Math.random() * CareerContentsMap.length)
   const CareerContent = CareerContentsMap[randomValue]
 
-  const encodedValue = encodeBase64(`career/${randomValue}`)
+  const encodedValue = encodeBase64(`CAREER_${randomValue + 1}`)
 
   return (
     <div className='flex gap-[60px] items-center'>

@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import DefaultLayout from '@components/layout'
+import { DefaultLayout, MobileLayout } from '@components/layout'
 import Home from '@/routes/pages/Home'
 import Select from '@pages/Select'
 import Love from '@pages/Love'
@@ -57,6 +57,12 @@ const router = createBrowserRouter([
         path: 'print/:category',
         element: <Print />,
       },
+    ],
+  },
+  {
+    path: '/',
+    element: <MobileLayout />,
+    children: [
       {
         path: 'download/:category',
         element: <Download />,

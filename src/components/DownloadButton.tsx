@@ -26,7 +26,7 @@ export function DownloadButton({ imgUrl, fileName }: DownloadButtonProps) {
 
   return (
     <button
-      className='px-20 py-2 bg-white w-fit h-fit'
+      className='w-3/4 py-2 bg-white h-fit'
       onClick={() => {
         downloadFile(imgUrl, fileName)
       }}

@@ -6,7 +6,7 @@ export default function Love() {
   const randomValue = Math.floor(Math.random() * LoveContentsMap.length)
   const LoveContent = LoveContentsMap[randomValue]
 
-  const encodedValue = encodeBase64(`love/${randomValue}`)
+  const encodedValue = encodeBase64(`LOVE_${randomValue + 1}`)
 
   return (
     <div className='flex gap-[60px] items-center'>

@@ -6,7 +6,7 @@ export default function Money() {
   const randomValue = Math.floor(Math.random() * MoneyContentsMap.length)
   const MoneyContent = MoneyContentsMap[randomValue]
 
-  const encodedValue = encodeBase64(`money/${randomValue}`)
+  const encodedValue = encodeBase64(`MONEY_${randomValue + 1}`)
 
   return (
     <div className='flex gap-[60px] items-center'>

@@ -6,7 +6,7 @@ export default function Luck() {
   const randomValue = Math.floor(Math.random() * LuckContentsMap.length)
   const LuckContent = LuckContentsMap[randomValue]
 
-  const encodedValue = encodeBase64(`luck/${randomValue}`)
+  const encodedValue = encodeBase64(`(오늘의 운)_${randomValue + 1}`)
 
   return (
     <div className='flex gap-[60px] items-center'>

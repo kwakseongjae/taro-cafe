@@ -14,29 +14,29 @@ export default function Download() {
   const location = useLocation().pathname.split('/')
   const decodedValue = decodeBase64(location[location.length - 1])
 
-  const contentIndex = Number(decodedValue.split('/')[1])
+  const contentIndex = Number(decodedValue.split('_')[1]) - 1
 
   const contentElements = useMemo(() => {
-    switch (decodedValue.split('/')[0]) {
-      case 'money':
+    switch (decodedValue.split('_')[0]) {
+      case 'MONEY':
         return MoneyContentsMap[contentIndex]
-      case 'career':
+      case 'CAREER':
         return CareerContentsMap[contentIndex]
-      case 'health':
+      case 'HEALTH':
         return HealthContentsMap[contentIndex]
-      case 'love':
+      case 'LOVE':
         return LoveContentsMap[contentIndex]
-      case 'luck':
+      case '(오늘의 운)':
         return LuckContentsMap[contentIndex]
       default:
-        return { component: 'error' }
+        return { result: 'error' }
     }
   }, [decodedValue, contentIndex])
 
   return (
-    <div className='flex flex-col items-center gap-20 text-white'>
-      <contentElements.component className='w-[300px] h-[300px]' />
-      <DownloadButton imgUrl='/resultSample.png' fileName={`${decodedValue}`} />
+    <div className='flex flex-col items-center gap-10 text-white'>
+      <img src={contentElements.result} alt='taro-result' className='w-3/4' />
+      <DownloadButton imgUrl={contentElements.result} fileName={`UR UUUN_${decodedValue}`} />
     </div>
   )
 }

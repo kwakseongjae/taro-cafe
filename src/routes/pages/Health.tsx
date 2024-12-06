@@ -6,7 +6,7 @@ export default function Health() {
   const randomValue = Math.floor(Math.random() * HealthContentsMap.length)
   const HealthContent = HealthContentsMap[randomValue]
 
-  const encodedValue = encodeBase64(`health/${randomValue}`)
+  const encodedValue = encodeBase64(`HEALTH_${randomValue + 1}`)
 
   return (
     <div className='flex gap-[60px] items-center'>
