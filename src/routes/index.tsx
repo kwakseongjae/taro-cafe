@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: '/',
+    path: '/mobile',
     element: <MobileLayout />,
     children: [
       {

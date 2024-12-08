@@ -8,7 +8,7 @@ export default function Print() {
   const location = useLocation().pathname.split('/')
   const encodedValue = location[location.length - 1]
 
-  const downloadUrl = `https://flip-side-virid.vercel.app/download/${encodedValue}`
+  const downloadUrl = `https://flip-side-virid.vercel.app/mobile/download/${encodedValue}`
 
   const [count, setCount] = useState(20)
 
