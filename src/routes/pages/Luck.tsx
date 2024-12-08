@@ -20,6 +20,7 @@ export default function Luck() {
           className='w-[465px] h-[72.5px]'
           text='PRINT'
           textSize='md'
+          resultType={`Luck${randomValue + 1}`}
           navigate={`/print/${encodedValue}`}
         />
       </div>

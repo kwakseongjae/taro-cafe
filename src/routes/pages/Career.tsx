@@ -20,6 +20,7 @@ export default function Career() {
           className='w-[465px] h-[72.5px]'
           text='PRINT'
           textSize='md'
+          resultType={`Career${randomValue + 1}`}
           navigate={`/print/${encodedValue}`}
         />
       </div>

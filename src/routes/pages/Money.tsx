@@ -5,7 +5,8 @@ import { PrintButton } from '@assets/svg'
 export default function Money() {
   const randomValue = Math.floor(Math.random() * MoneyContentsMap.length)
   const MoneyContent = MoneyContentsMap[randomValue]
-
+  console.log(randomValue)
+  console.log(randomValue + 1)
   const encodedValue = encodeBase64(`MONEY_${randomValue + 1}`)
 
   return (
@@ -20,6 +21,7 @@ export default function Money() {
           className='w-[465px] h-[72.5px]'
           text='PRINT'
           textSize='md'
+          resultType={`Money${randomValue + 1}`}
           navigate={`/print/${encodedValue}`}
         />
       </div>

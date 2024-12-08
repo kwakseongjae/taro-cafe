@@ -7,14 +7,14 @@ declare global {
   }
 }
 
-const receipt = (
-  <Printer type='epson' width={80} debug={true}>
-    <Image align='center' src='/resultSample.png' />
-    <Cut />
-  </Printer>
-)
-
-export const onClickPrintHandler = async () => {
+export const onClickPrintHandler = async (resultType: string) => {
+  const receipt = (
+    <Printer type='epson' width={60} debug={true}>
+      <Image align='center' src={`/result/${resultType}.png`} />
+      <Cut />
+    </Printer>
+  )
+  console.log(resultType)
   const data = await render(receipt)
   const port = await window.navigator?.serial?.requestPort()
   if (port.writable === null) {
@@ -25,4 +25,6 @@ export const onClickPrintHandler = async () => {
     await writer!.write(data).then(() => setTimeout(() => port.close(), 20000))
     writer!.releaseLock()
   }
+
+  return true
 }

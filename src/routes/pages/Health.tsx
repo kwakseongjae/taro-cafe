@@ -20,6 +20,7 @@ export default function Health() {
           className='w-[465px] h-[72.5px]'
           text='PRINT'
           textSize='md'
+          resultType={`Health${randomValue + 1}`}
           navigate={`/print/${encodedValue}`}
         />
       </div>
