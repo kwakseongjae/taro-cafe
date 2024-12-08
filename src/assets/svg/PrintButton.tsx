@@ -18,8 +18,7 @@ const SvgPrintButton = ({
 }: SvgPrintButtonProps) => {
   const nav = useNavigate()
   const onClick = async () => {
-    await onClickPrintHandler(resultType)
-    nav(navigate)
+    await onClickPrintHandler(resultType, nav, navigate)
   }
   const textSizeClass = textSize === 'lg' ? 'text-[80px]' : 'text-[40px]'
   return (

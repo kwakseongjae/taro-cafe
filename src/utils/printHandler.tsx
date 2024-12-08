@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { NavigateFunction } from 'react-router-dom'
 import { Printer, render, Image, Cut } from 'react-thermal-printer'
 
 declare global {
@@ -7,14 +8,17 @@ declare global {
   }
 }
 
-export const onClickPrintHandler = async (resultType: string) => {
+export const onClickPrintHandler = async (
+  resultType: string,
+  nav: NavigateFunction,
+  navigate: string,
+): Promise<void> => {
   const receipt = (
     <Printer type='epson' width={60} debug={true}>
       <Image align='center' src={`/result/${resultType}.png`} />
       <Cut />
     </Printer>
   )
-  console.log(resultType)
   const data = await render(receipt)
   const port = await window.navigator?.serial?.requestPort()
   if (port.writable === null) {
@@ -22,9 +26,8 @@ export const onClickPrintHandler = async (resultType: string) => {
   }
   const writer = port.writable?.getWriter()
   if (writer !== null) {
+    nav(navigate)
     await writer!.write(data).then(() => setTimeout(() => port.close(), 20000))
     writer!.releaseLock()
   }
-
-  return true
 }
